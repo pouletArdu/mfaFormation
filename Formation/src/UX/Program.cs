@@ -1,5 +1,7 @@
+global using Appllication.Client;
 using UX.Data;
-
+using Appllication;
+using Infra;
 namespace UX;
 
 public class Program
@@ -12,7 +14,9 @@ public class Program
         builder.Services.AddRazorPages();
         builder.Services.AddServerSideBlazor();
         builder.Services.AddSingleton<WeatherForecastService>();
-
+        builder.Services.AddControllers();
+        builder.Services.AddApplication();
+        builder.Services.AddInfrastructure(builder.Configuration);
         var app = builder.Build();
 
         // Configure the HTTP request pipeline.
