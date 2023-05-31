@@ -130,6 +130,68 @@ this.ScenarioInitialize(scenarioInfo);
             this.ScenarioCleanup();
         }
         
+        [Xunit.SkippableTheoryAttribute(DisplayName="Ajouter un nouvelle auteur 2")]
+        [Xunit.TraitAttribute("FeatureTitle", "AuthorFeatures")]
+        [Xunit.TraitAttribute("Description", "Ajouter un nouvelle auteur 2")]
+        [Xunit.InlineDataAttribute("John", "Doe", "01/01/1970", new string[0])]
+        [Xunit.InlineDataAttribute("Jane", "Doe", "01/01/1970", new string[0])]
+        [Xunit.InlineDataAttribute("John", "Smith", "01/01/1970", new string[0])]
+        public virtual void AjouterUnNouvelleAuteur2(string nom, string prenom, string date, string[] exampleTags)
+        {
+            string[] tagsOfScenario = exampleTags;
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            argumentsOfScenario.Add("nom", nom);
+            argumentsOfScenario.Add("prénom", prenom);
+            argumentsOfScenario.Add("date", date);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Ajouter un nouvelle auteur 2", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+#line 13
+ this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            bool isScenarioIgnored = default(bool);
+            bool isFeatureIgnored = default(bool);
+            if ((tagsOfScenario != null))
+            {
+                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((this._featureTags != null))
+            {
+                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((isScenarioIgnored || isFeatureIgnored))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 14
+  testRunner.Given("Un auteur existe", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 15
+  testRunner.And(string.Format("son nom est {0}", nom), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 16
+  testRunner.And(string.Format("son prenom est {0}", prenom), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 17
+  testRunner.And(string.Format("sa date de naissance est {0}", date), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 18
+  testRunner.When("je veux ajouter un auteur", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 19
+  testRunner.Then("l\'auteur est ajouté", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 20
+  testRunner.And("Aucune exception n\'est levée", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
+#line hidden
+#line 21
+  testRunner.And("le resultat est 1", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
         [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.9.0.0")]
         [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
         public class FixtureData : System.IDisposable

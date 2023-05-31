@@ -15,6 +15,8 @@ public static class DependencyInjection
         options.UseSqlite(configuration.GetConnectionString("WebApiDatabase"))); ;
         services.AddAutoMapper(ass);
         services.AddScoped<ClientRepository, ClientRepositoryImp>();
+        services.AddScoped<BookRepository, BookRepositoryImp>();
+        services.AddScoped<AuthorRepository, AuthorRepositoryImp>();
         return services;
     }
 }

@@ -17,6 +17,8 @@ Scenario: Ajouter un nouvelle auteur
 	 And sa date de naissance est <date>
 	 When je veux ajouter un auteur
 	 Then l'auteur est ajouté
+	 * Aucune exception n'est levée
+	 * le resultat est 1
  Examples: 
 | nom | prénom | date |
 | John | Doe | 01/01/1970 |
