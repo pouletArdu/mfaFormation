@@ -1,4 +1,7 @@
+global using Application.Client;
 using UX.Data;
+using Infra;
+using Application;
 
 namespace UX;
 
@@ -11,6 +14,11 @@ public class Program
         // Add services to the container.
         builder.Services.AddRazorPages();
         builder.Services.AddServerSideBlazor();
+        
+        builder.Services.AddControllers();
+        builder.Services.AddApplication();
+        builder.Services.AddInfrastructure(builder.Configuration);
+
         builder.Services.AddSingleton<WeatherForecastService>();
 
         var app = builder.Build();
@@ -31,6 +39,10 @@ public class Program
 
         app.MapBlazorHub();
         app.MapFallbackToPage("/_Host");
+
+        app.UseAuthorization();
+
+        app.MapControllers();
 
         app.Run();
     }
