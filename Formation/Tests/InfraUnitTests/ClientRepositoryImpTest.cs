@@ -29,7 +29,6 @@ namespace InfraUnitTests
                 FirstName = "Test"
             };
 
-
             var result = await _repository.Add(client);
 
             Assert.True(result > 0);
