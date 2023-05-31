@@ -47,7 +47,7 @@ public class AddClientCommandHandler : IRequestHandler<AddClientCommand, int>
 
 
         private bool IsValidEmail(string arg)
-        {
+        {if(string.IsNullOrEmpty(arg)) return true;
             return arg.Contains("@");
         }
     }

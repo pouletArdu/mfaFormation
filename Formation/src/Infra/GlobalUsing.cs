@@ -6,3 +6,4 @@ global using System.Text;
 global using Appllication.Repositories;
 global using Infra.Entities;
 global using Infra.Persitence;
+global using Microsoft.EntityFrameworkCore;

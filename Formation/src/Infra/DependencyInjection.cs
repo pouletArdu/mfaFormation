@@ -12,7 +12,7 @@ public static class DependencyInjection
     {
         var ass = Assembly.GetExecutingAssembly();
         services.AddDbContext<ApplicationDbContext>(options =>
-        options.UseSqlite(configuration.GetSection("Sqlite").Value));
+        options.UseSqlite(configuration.GetConnectionString("WebApiDatabase"))); ;
         services.AddAutoMapper(ass);
         services.AddScoped<ClientRepository, ClientRepositoryImp>();
         return services;
