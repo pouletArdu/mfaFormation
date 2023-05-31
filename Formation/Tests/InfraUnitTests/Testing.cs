@@ -5,13 +5,13 @@ using Microsoft.EntityFrameworkCore;
 
 namespace InfraUnitTests
 {
-    public class Testing
+    public abstract class Testing
     {
         protected ApplicationDbContext _dbContext;
         protected IMapper _mapper;
         public Testing()
         {
-            var connection = new SqliteConnection("DataSource=:memory:");
+            var connection = new SqliteConnection("Filename=MyDB.db");
             connection.Open();
 
             var options = new DbContextOptionsBuilder<ApplicationDbContext>()

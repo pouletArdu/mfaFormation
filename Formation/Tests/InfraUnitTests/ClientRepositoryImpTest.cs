@@ -15,11 +15,12 @@ namespace InfraUnitTests
 
         public void Dispose()
         {
-            
+            _dbContext.Database.ExecuteSqlRaw("DELETE FROM Clients");
+            _dbContext.SaveChanges();
         }
 
         [Fact]
-        public void ShouldAddClient()
+        public async Task ShouldAddClient()
         {
             var client = new ClientDto()
             {
@@ -29,11 +30,29 @@ namespace InfraUnitTests
             };
 
 
-            var result = _repository.Add(client);
+            var result = await _repository.Add(client);
 
-            Assert.True(result.Result > 0);
+            Assert.True(result > 0);
 
-            _dbContext.Clients.CountAsync().Result.Should().Be(1);
+            _dbContext.Clients.Count().Should().Be(1);
+        }
+
+        [Fact]
+        public async Task ShouldAddClient1()
+        {
+            var client = new ClientDto()
+            {
+                LastName = "Test1",
+                Email = "toto@ss.toto",
+                FirstName = "Test"
+            };
+
+
+            var result = await _repository.Add(client);
+
+            Assert.True(result > 0);
+
+            _dbContext.Clients.Count().Should().Be(1);
         }
 
     }
