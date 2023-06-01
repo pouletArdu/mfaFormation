@@ -1,7 +1,6 @@
 ﻿using Domain.Models;
 using Infra.Entities;
 using Infra.Repositories;
-using Microsoft.EntityFrameworkCore;
 
 namespace InfraUnitTests
 {
