@@ -3,4 +3,6 @@
 public interface AuthorRepository
 {
     Task<int> AddAuthor(AuthorDto author);
+    Task<AuthorDto> GetOne(int id);
+    Task<IEnumerable<AuthorDto>> GetAll();
 }

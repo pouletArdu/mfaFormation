@@ -7,11 +7,25 @@ using System.Threading.Tasks;
 
 namespace Infra.Repositories
 {
-    public class AuthorRepositoryImp : AuthorRepository
+    public class AuthorRepositoryImp : AbstractRepositoryImp, AuthorRepository
     {
-        public Task<int> AddAuthor(AuthorDto author)
+
+        public AuthorRepositoryImp(ApplicationDbContext context, IMapper mapper) : base(context, mapper)
         {
-            throw new NotImplementedException();
         }
+
+        public async Task<int> AddAuthor(AuthorDto author)
+        {
+            var authorEntity = _mapper.Map<Author>(author);
+            var existAuthor = await _context.Authors.FindAsync(author.Id);
+            if (existAuthor != null)
+            {
+                throw new Appllication.Commons.Exceptions.NotFoundException();
+            }
+            _context.Authors.Add(authorEntity);
+            return await _context.SaveChangesAsync();
+        }
+
+
     }
 }
