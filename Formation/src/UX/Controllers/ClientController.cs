@@ -17,5 +17,9 @@ namespace UX.Controllers
         [HttpPost]
         public async Task<IActionResult> AddClient(AddClientCommand command)
             => Ok(await _mediator.Send(command));
+
+        [HttpGet]
+        public async Task<IActionResult> GetAllClients(GetAllClientsCommand command)
+            => Ok(await _mediator.Send(command));
     }
 }

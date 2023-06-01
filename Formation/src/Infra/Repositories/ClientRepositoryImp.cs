@@ -1,4 +1,4 @@
-﻿using Domain.Models;
+using Domain.Models;
 
 namespace Infra.Repositories;
 
@@ -17,6 +17,13 @@ public class ClientRepositoryImp : AbstractRepositoryImp, ClientRepository
         _context.Clients.Add(clientEntity);
         await _context.SaveChangesAsync();
         return clientEntity.Id;
+    }
+
+    public async Task<IEnumerable<ClientDto>> GetAll()
+    {
+        await Task.Yield();
+        var clients = _context.Clients;
+        return _mapper.Map<IEnumerable<ClientDto>>(clients);
     }
 
     public async Task<ClientDto> GetOne(int id)
