@@ -16,8 +16,8 @@ public class Program
         builder.Services.AddRazorPages();
         builder.Services.AddServerSideBlazor();
         builder.Services.AddSingleton<WeatherForecastService>();
-        builder.Services.AddApplication(); ;
         builder.Services.AddInfrastructure(builder.Configuration);
+        builder.Services.AddApplication(); ;
         var app = builder.Build();
 
         // Configure the HTTP request pipeline.
