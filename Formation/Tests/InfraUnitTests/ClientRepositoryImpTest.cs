@@ -54,5 +54,13 @@ namespace InfraUnitTests
             _dbContext.Clients.Count().Should().Be(1);
         }
 
+        [Theory]
+        [InlineData(1)]
+        public async Task ShouldRemoveClient1WhenClientExist(int id)
+        {
+            //var entity = _dbContext.Client.FindAsync(1);
+            throw NotImplementedException();
+        }
+
     }
 }

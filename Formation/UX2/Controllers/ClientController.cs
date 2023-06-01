@@ -22,5 +22,12 @@ namespace UX2.Controllers
             var query = new GetOneClientQuery(id);
             return await Send(query);
         }
+
+        [HttpDelete("{id}")]
+        public async Task Delete(int id)
+        {
+            var command = new DeleteClientCommand(id);
+            return await Send(query);
+        }
     }
 }
