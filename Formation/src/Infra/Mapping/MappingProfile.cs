@@ -1,4 +1,5 @@
 ﻿global using AutoMapper;
+using Domain.Models;
 
 namespace Infra.Mapping
 {
@@ -6,7 +7,9 @@ namespace Infra.Mapping
     {
         public MappingProfile()
         {
-            CreateMap<Client, Domain.Models.ClientDto>().ReverseMap();
+            CreateMap<Client, ClientDto>().ReverseMap();
+            CreateMap<Book, BookDto>().ReverseMap();
+            CreateMap<Author, AuthorDto>().ReverseMap();
         }
     }
 }

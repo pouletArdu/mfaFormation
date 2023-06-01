@@ -1,11 +1,9 @@
 ﻿global using MediatR;
 using Appllication.Client;
-using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 
 namespace UX2.Controllers
 {
-    [Route("api/[controller]")]
     public class ClientController : AbstractController
     {
         public ClientController(IMediator mediator) : base(mediator)
@@ -19,7 +17,7 @@ namespace UX2.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<IActionResult> Get( int id)
+        public async Task<IActionResult> Get(int id)
         {
             var query = new GetOneClientQuery(id);
             return await Send(query);
