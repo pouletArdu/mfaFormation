@@ -9,8 +9,7 @@ namespace Application.ValidationTest;
 public abstract class Testing
 {
     private readonly IServiceScopeFactory _scopeFactory;
-
-    public Testing()
+     public Testing()
     {
         var services = new ServiceCollection();
 

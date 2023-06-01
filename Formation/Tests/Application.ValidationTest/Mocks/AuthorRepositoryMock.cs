@@ -15,5 +15,10 @@ namespace Application.ValidationTest.Mocks
             return author.Id;
         }
         public static void Dispose()=> Authors.Clear();
+
+        public Task<IEnumerable<AuthorDto>> GetAll()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
