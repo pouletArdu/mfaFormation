@@ -5,9 +5,6 @@ namespace Infra.Repositories;
 
 public class AuthorRepositoryImp : AbstractRepositoryImp, AuthorRepository
 {
-    private readonly ApplicationDbContext _context;
-    private readonly IMapper _mapper;
-
     public AuthorRepositoryImp(ApplicationDbContext context, IMapper mapper) : base(context, mapper)
     {
     }
