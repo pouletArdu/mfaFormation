@@ -16,6 +16,12 @@ namespace Infra.Repositories
         public async Task<int> AddBook(BookDto book)
         {
             var bookEntity = _mapper.Map<Book>(book);
+            var author = await _context.Authors.FindAsync(book.AuthorId);
+            if (author == null)
+            {
+                throw new Appllication.Commons.Exceptions.NotFoundException();
+            }
+            bookEntity.Author = author;
             _context.Books.Add(bookEntity);
             return await _context.SaveChangesAsync();
         }

@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 
 namespace Infra.Persitence;
 
@@ -12,6 +13,17 @@ public class ApplicationDbContext : DbContext
     {
         Database.EnsureCreated();
     }
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        base.OnModelCreating(modelBuilder);
+
+        //modelBuilder.Entity<Book>()
+        //       .HasOne(b => b.Author)
+        //       .WithMany(a => a.Books)
+        //       .OnDelete(DeleteBehavior.Cascade);
+    }
+
 
     public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
     {

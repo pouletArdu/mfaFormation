@@ -11,7 +11,7 @@ namespace InfraUnitTests
         protected IMapper _mapper;
         public Testing()
         {
-            var connection = new SqliteConnection("Filename=MyDB.db");
+            var connection = new SqliteConnection("Filename=MyDB1.db");
             connection.Open();
 
             var options = new DbContextOptionsBuilder<ApplicationDbContext>()
