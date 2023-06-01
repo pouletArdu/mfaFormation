@@ -25,5 +25,11 @@ namespace Infra.Repositories
             _context.Books.Add(bookEntity);
             return await _context.SaveChangesAsync();
         }
+
+        public async Task<IEnumerable<BookDto>> GetAllBooks()
+        {
+            var books = _context.Books;
+            return _mapper.Map<IEnumerable<BookDto>>(books);
+        }
     }
 }
