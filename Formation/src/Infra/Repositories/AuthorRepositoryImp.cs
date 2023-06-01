@@ -1,4 +1,4 @@
-﻿using Domain.Models;
+using Domain.Models;
 
 namespace Infra.Repositories;
 public class AuthorRepositoryImp : AbstractRepositoryImp, AuthorRepository
@@ -11,4 +11,12 @@ public class AuthorRepositoryImp : AbstractRepositoryImp, AuthorRepository
     {
         throw new NotImplementedException();
     }
+
+    public async Task<IEnumerable<AuthorDto>> GetAll()
+    {
+        var authors = _context.Authors.AsEnumerable();
+        return _mapper.Map<IEnumerable<AuthorDto>>(authors);
+    }
 }
+
+
