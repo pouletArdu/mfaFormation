@@ -16,6 +16,7 @@ namespace UX2.Controllers
             return await Send(command);
         }
 
+
         [HttpGet("{id}")]
         public async Task<IActionResult> Get(int id)
         {
