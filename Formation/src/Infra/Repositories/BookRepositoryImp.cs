@@ -25,5 +25,10 @@ namespace Infra.Repositories
             _context.Books.Add(bookEntity);
             return await _context.SaveChangesAsync();
         }
+        public async Task<BookDto> GetOne(int id)
+        {
+            var book = await _context.Books.FindAsync(id);
+            return _mapper.Map<BookDto>(book);
+        }
     }
 }

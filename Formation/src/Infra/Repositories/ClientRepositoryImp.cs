@@ -4,9 +4,6 @@ namespace Infra.Repositories;
 
 public class ClientRepositoryImp : AbstractRepositoryImp, ClientRepository
 {
-    private readonly ApplicationDbContext _context;
-    private readonly IMapper _mapper;
-
     public ClientRepositoryImp(ApplicationDbContext context, IMapper mapper) : base(context, mapper)
     {
     }
