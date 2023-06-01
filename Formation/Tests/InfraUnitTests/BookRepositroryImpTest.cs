@@ -14,8 +14,11 @@ namespace InfraUnitTests
         }
         public void Dispose()
         {
+
             var books = _dbContext.Books.ToList();
             _dbContext.Books.RemoveRange(books);
+            _dbContext.SaveChanges();
+
             var authors = _dbContext.Authors.ToList();
             _dbContext.Authors.RemoveRange(authors);
             _dbContext.SaveChanges();
@@ -37,7 +40,7 @@ namespace InfraUnitTests
             var book = new BookDto()
             {
                 Title = "Test",
-                AuthorId = 1,
+                AuthorId = author.Id,
                 Description = "Test",
                 PublicationDate = DateTime.Now
             };
