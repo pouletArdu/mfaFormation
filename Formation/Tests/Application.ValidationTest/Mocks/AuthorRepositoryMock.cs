@@ -14,6 +14,20 @@ namespace Application.ValidationTest.Mocks
             Authors.Add(author);
             return author.Id;
         }
+
+        public async Task<AuthorDto> GetOne(int id)
+        {
+            await Task.Yield();
+            var author = new AuthorDto()
+            {
+                LastName = "Test",
+                FirstName = "Test",
+                BirthDate = DateTime.Now,
+            };
+            Authors.Add(author);
+            return author;
+        }
+
         public static void Dispose()=> Authors.Clear();
     }
 }
